@@ -1,0 +1,29 @@
+/.zed/
+/target/
+/node_modules/
+/.cache/
+
+# Zed builds grammar WebAssembly artifacts from the tracked parser sources.
+/grammars/*.wasm
+*.wasm
+
+# Zed may clone manifest grammars here while building/testing locally.
+/grammars/bash/
+/grammars/xml/
+/grammars/rst/
+/grammars/gentoo_make_conf/
+/grammars/gentoo_mirrors/
+/grammars/gentoo_package_keywords/
+/grammars/gentoo_package_license/
+/grammars/gentoo_package_mask/
+/grammars/gentoo_package_properties/
+/grammars/gentoo_package_use/
+/grammars/gentoo_use_desc/
+
+# Native parser/build outputs from local Tree-sitter experiments.
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.dSYM/

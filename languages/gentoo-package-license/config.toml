@@ -1,0 +1,5 @@
+name = "Gentoo package.license"
+grammar = "gentoo_package_license"
+path_suffixes = ["package.license"]
+line_comments = ["# "]
+tab_size = 4

@@ -1,0 +1,5 @@
+name = "Gentoo package.mask"
+grammar = "gentoo_package_mask"
+path_suffixes = ["package.mask", "package.unmask"]
+line_comments = ["# "]
+tab_size = 4

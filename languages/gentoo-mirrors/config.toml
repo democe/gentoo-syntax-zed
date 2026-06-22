@@ -1,0 +1,5 @@
+name = "Gentoo Mirrors"
+grammar = "gentoo_mirrors"
+path_suffixes = ["thirdpartymirrors", "mirrors"]
+line_comments = ["# "]
+tab_size = 4

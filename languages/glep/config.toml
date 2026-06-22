@@ -1,0 +1,5 @@
+name = "Gentoo GLEP"
+grammar = "rst"
+first_line_pattern = "^GLEP:\\s+"
+line_comments = [".. "]
+tab_size = 3

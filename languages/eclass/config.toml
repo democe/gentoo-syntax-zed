@@ -1,0 +1,6 @@
+name = "Gentoo Eclass"
+grammar = "bash"
+path_suffixes = ["eclass"]
+line_comments = ["# "]
+tab_size = 4
+hard_tabs = true

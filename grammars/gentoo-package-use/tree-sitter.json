@@ -1,0 +1,21 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "gentoo-package-use",
+      "camelcase": "GentooPackageUse",
+      "title": "Gentoo Package Use",
+      "scope": "source.gentoo-package-use",
+      "injection-regex": "^gentoo-package-use$",
+      "class-name": "TreeSitterGentooPackageUse"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "tree-sitter grammar for Gentoo Gentoo Package Use files",
+    "authors": [{ "name": "democe <democe@democe.com>" }],
+    "links": { "repository": "https://github.com/democe/gentoo-syntax-zed" }
+  },
+  "bindings": { "c": true, "go": false, "node": false, "python": false, "rust": false, "swift": false }
+}

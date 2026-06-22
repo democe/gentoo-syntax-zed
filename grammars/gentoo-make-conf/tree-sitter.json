@@ -1,0 +1,29 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "gentoo-make-conf",
+      "camelcase": "GentooMakeConf",
+      "title": "Gentoo make.conf",
+      "scope": "source.gentoo-make-conf",
+      "file-types": ["make.conf", "make.globals"],
+      "injection-regex": "^gentoo-make-conf$",
+      "class-name": "TreeSitterGentooMakeConf"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "tree-sitter grammar for Gentoo Portage make.conf files",
+    "authors": [{ "name": "democe <democe@democe.com>" }],
+    "links": { "repository": "https://github.com/democe/gentoo-syntax-zed" }
+  },
+  "bindings": {
+    "c": true,
+    "go": false,
+    "node": false,
+    "python": false,
+    "rust": false,
+    "swift": false
+  }
+}

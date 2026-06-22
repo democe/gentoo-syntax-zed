@@ -1,0 +1,743 @@
+[
+  {
+    "type": "accept_keywords",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "accept_license",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "accept_properties",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "allow_test",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "assignment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "value",
+          "named": true
+        },
+        {
+          "type": "variable_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "bareword_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arch",
+          "named": true
+        },
+        {
+          "type": "bad_sparc_chost",
+          "named": true
+        },
+        {
+          "type": "bareword_chunk",
+          "named": true
+        },
+        {
+          "type": "escape",
+          "named": true
+        },
+        {
+          "type": "feature",
+          "named": true
+        },
+        {
+          "type": "flag_token",
+          "named": true
+        },
+        {
+          "type": "license_token",
+          "named": true
+        },
+        {
+          "type": "makeopts_bad_j",
+          "named": true
+        },
+        {
+          "type": "use_flag",
+          "named": true
+        },
+        {
+          "type": "var_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cflags_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "chost_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "eclass_variable",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "features_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "blank_line",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "known_variable",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ldflags_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "makeopts_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "naughty_variable",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "quoted_string",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "arch",
+          "named": true
+        },
+        {
+          "type": "bad_sparc_chost",
+          "named": true
+        },
+        {
+          "type": "escape",
+          "named": true
+        },
+        {
+          "type": "feature",
+          "named": true
+        },
+        {
+          "type": "flag_token",
+          "named": true
+        },
+        {
+          "type": "license_token",
+          "named": true
+        },
+        {
+          "type": "makeopts_bad_j",
+          "named": true
+        },
+        {
+          "type": "string_chunk",
+          "named": true
+        },
+        {
+          "type": "use_flag",
+          "named": true
+        },
+        {
+          "type": "var_ref",
+          "named": true
+        },
+        {
+          "type": "ws",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "use_keyword",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "bareword_list",
+          "named": true
+        },
+        {
+          "type": "quoted_string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "variable_name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "accept_keywords",
+          "named": true
+        },
+        {
+          "type": "accept_license",
+          "named": true
+        },
+        {
+          "type": "accept_properties",
+          "named": true
+        },
+        {
+          "type": "allow_test",
+          "named": true
+        },
+        {
+          "type": "cflags_name",
+          "named": true
+        },
+        {
+          "type": "chost_name",
+          "named": true
+        },
+        {
+          "type": "eclass_variable",
+          "named": true
+        },
+        {
+          "type": "features_name",
+          "named": true
+        },
+        {
+          "type": "known_variable",
+          "named": true
+        },
+        {
+          "type": "ldflags_name",
+          "named": true
+        },
+        {
+          "type": "makeopts_name",
+          "named": true
+        },
+        {
+          "type": "misc_variable",
+          "named": true
+        },
+        {
+          "type": "naughty_variable",
+          "named": true
+        },
+        {
+          "type": "use_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ws",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "\n",
+    "named": false
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "ACCEPT_KEYWORDS",
+    "named": false
+  },
+  {
+    "type": "ACCEPT_LICENSE",
+    "named": false
+  },
+  {
+    "type": "ACCEPT_PROPERTIES",
+    "named": false
+  },
+  {
+    "type": "ALLOW_TEST",
+    "named": false
+  },
+  {
+    "type": "ARCH",
+    "named": false
+  },
+  {
+    "type": "ASFLAGS",
+    "named": false
+  },
+  {
+    "type": "AUTOCLEAN",
+    "named": false
+  },
+  {
+    "type": "BINPKG_COMPRESS",
+    "named": false
+  },
+  {
+    "type": "BINPKG_COMPRESS_FLAGS",
+    "named": false
+  },
+  {
+    "type": "BREAKME",
+    "named": false
+  },
+  {
+    "type": "BUILD_PREFIX",
+    "named": false
+  },
+  {
+    "type": "CBUILD",
+    "named": false
+  },
+  {
+    "type": "CCACHE_DIR",
+    "named": false
+  },
+  {
+    "type": "CCACHE_SIZE",
+    "named": false
+  },
+  {
+    "type": "CCACHE_SLOPPINESS",
+    "named": false
+  },
+  {
+    "type": "CFLAGS",
+    "named": false
+  },
+  {
+    "type": "CHECKREQS_DONOTHING",
+    "named": false
+  },
+  {
+    "type": "CHOST",
+    "named": false
+  },
+  {
+    "type": "CLEAN_DELAY",
+    "named": false
+  },
+  {
+    "type": "COLLISION_IGNORE",
+    "named": false
+  },
+  {
+    "type": "CONFIG_PROTECT",
+    "named": false
+  },
+  {
+    "type": "CONFIG_PROTECT_MASK",
+    "named": false
+  },
+  {
+    "type": "CXXFLAGS",
+    "named": false
+  },
+  {
+    "type": "DISTCC_DIR",
+    "named": false
+  },
+  {
+    "type": "DISTDIR",
+    "named": false
+  },
+  {
+    "type": "DOC_SYMLINKS_DIR",
+    "named": false
+  },
+  {
+    "type": "EBEEP_IGNORE",
+    "named": false
+  },
+  {
+    "type": "ECHANGELOG_USER",
+    "named": false
+  },
+  {
+    "type": "ELIBC",
+    "named": false
+  },
+  {
+    "type": "EMERGE_DEFAULT_OPTS",
+    "named": false
+  },
+  {
+    "type": "EPAUSE_IGNORE",
+    "named": false
+  },
+  {
+    "type": "EXTRA_ECONF",
+    "named": false
+  },
+  {
+    "type": "FCFLAGS",
+    "named": false
+  },
+  {
+    "type": "FEATURES",
+    "named": false
+  },
+  {
+    "type": "FETCHCOMMAND",
+    "named": false
+  },
+  {
+    "type": "FFLAGS",
+    "named": false
+  },
+  {
+    "type": "FTP_PROXY",
+    "named": false
+  },
+  {
+    "type": "GENTOO_MIRRORS",
+    "named": false
+  },
+  {
+    "type": "HTTP_PROXY",
+    "named": false
+  },
+  {
+    "type": "INSTALL_MASK",
+    "named": false
+  },
+  {
+    "type": "KERNEL",
+    "named": false
+  },
+  {
+    "type": "LDFLAGS",
+    "named": false
+  },
+  {
+    "type": "LINGUAS",
+    "named": false
+  },
+  {
+    "type": "MAKEOPTS",
+    "named": false
+  },
+  {
+    "type": "NOCOLOR",
+    "named": false
+  },
+  {
+    "type": "PKGDIR",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_BINHOST",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_BINHOST_HEADER_URI",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_BINPKG_FORMAT",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_BINPKG_TAR_OPTS",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_COMPRESS",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_COMPRESS_FLAGS",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_ELOG_CLASSES",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_ELOG_COMMAND",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_ELOG_MAILFROM",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_ELOG_MAILURI",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_ELOG_SYSTEM",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_FETCH_CHECKSUM_TRY_MIRRORS",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_FETCH_RESUME_MIN_SIZE",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_GPG_DIR",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_GPG_KEY",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_IONICE_COMMAND",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_LOGDIR",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_LOGDIR_CLEAN",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_LOG_FILTER_FILE_CMD",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_NICENESS",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_RSYNC_EXTRA_OPTS",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_RSYNC_INITIAL_TIMEOUT",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_RSYNC_OPTS",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_RSYNC_RETRIES",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_SCHEDULING_POLICY",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_TMPDIR",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_TMPFS",
+    "named": false
+  },
+  {
+    "type": "PORTAGE_WORKDIR_MODE",
+    "named": false
+  },
+  {
+    "type": "PORTDIR",
+    "named": false
+  },
+  {
+    "type": "PORTDIR_OVERLAY",
+    "named": false
+  },
+  {
+    "type": "PORT_LOGDIR",
+    "named": false
+  },
+  {
+    "type": "PORT_LOGDIR_CLEAN",
+    "named": false
+  },
+  {
+    "type": "QA_STRICT_EXECSTACK",
+    "named": false
+  },
+  {
+    "type": "QA_STRICT_TEXTRELS",
+    "named": false
+  },
+  {
+    "type": "QA_STRICT_WX_LOAD",
+    "named": false
+  },
+  {
+    "type": "RESUMECOMMAND",
+    "named": false
+  },
+  {
+    "type": "ROOT",
+    "named": false
+  },
+  {
+    "type": "RPMDIR",
+    "named": false
+  },
+  {
+    "type": "RSYNC_EXCLUDEFROM",
+    "named": false
+  },
+  {
+    "type": "RSYNC_RETRIES",
+    "named": false
+  },
+  {
+    "type": "RSYNC_TIMEOUT",
+    "named": false
+  },
+  {
+    "type": "SIGNED_OFF_BY",
+    "named": false
+  },
+  {
+    "type": "SYNC",
+    "named": false
+  },
+  {
+    "type": "USE",
+    "named": false
+  },
+  {
+    "type": "USERLAND",
+    "named": false
+  },
+  {
+    "type": "USE_ORDER",
+    "named": false
+  },
+  {
+    "type": "arch",
+    "named": true
+  },
+  {
+    "type": "bad_sparc_chost",
+    "named": true
+  },
+  {
+    "type": "bareword_chunk",
+    "named": true
+  },
+  {
+    "type": "blank_line",
+    "named": true
+  },
+  {
+    "type": "comment",
+    "named": true
+  },
+  {
+    "type": "escape",
+    "named": true
+  },
+  {
+    "type": "feature",
+    "named": true
+  },
+  {
+    "type": "flag_token",
+    "named": true
+  },
+  {
+    "type": "license_token",
+    "named": true
+  },
+  {
+    "type": "makeopts_bad_j",
+    "named": true
+  },
+  {
+    "type": "misc_variable",
+    "named": true
+  },
+  {
+    "type": "string_chunk",
+    "named": true
+  },
+  {
+    "type": "use_flag",
+    "named": true
+  },
+  {
+    "type": "var_ref",
+    "named": true
+  }
+]

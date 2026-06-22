@@ -1,0 +1,5 @@
+name = "Gentoo package.use"
+grammar = "gentoo_package_use"
+path_suffixes = ["package.use", "package.env"]
+line_comments = ["# "]
+tab_size = 4

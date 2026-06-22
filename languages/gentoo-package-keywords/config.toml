@@ -1,0 +1,5 @@
+name = "Gentoo package.keywords"
+grammar = "gentoo_package_keywords"
+path_suffixes = ["package.keywords", "package.accept_keywords"]
+line_comments = ["# "]
+tab_size = 4

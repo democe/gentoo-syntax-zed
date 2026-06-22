@@ -1,0 +1,1228 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
+  "name": "gentoo_make_conf",
+  "rules": {
+    "file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "comment"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "blank_line"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "assignment"
+          }
+        ]
+      }
+    },
+    "blank_line": {
+      "type": "PATTERN",
+      "value": "[ \\t]*\\n"
+    },
+    "comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "#"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^\\n]*"
+          }
+        ]
+      }
+    },
+    "assignment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "variable_name"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "value"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "\n"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "variable_name": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "use_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "accept_keywords"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "accept_license"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "accept_properties"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "allow_test"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "cflags_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ldflags_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "makeopts_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "chost_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "features_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "known_variable"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "eclass_variable"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "naughty_variable"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "misc_variable"
+        }
+      ]
+    },
+    "use_keyword": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "STRING",
+        "value": "USE"
+      }
+    },
+    "accept_keywords": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "STRING",
+        "value": "ACCEPT_KEYWORDS"
+      }
+    },
+    "accept_license": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "STRING",
+        "value": "ACCEPT_LICENSE"
+      }
+    },
+    "accept_properties": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "STRING",
+        "value": "ACCEPT_PROPERTIES"
+      }
+    },
+    "allow_test": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "STRING",
+        "value": "ALLOW_TEST"
+      }
+    },
+    "cflags_name": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "CFLAGS"
+          },
+          {
+            "type": "STRING",
+            "value": "CXXFLAGS"
+          },
+          {
+            "type": "STRING",
+            "value": "FFLAGS"
+          },
+          {
+            "type": "STRING",
+            "value": "FCFLAGS"
+          }
+        ]
+      }
+    },
+    "ldflags_name": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "STRING",
+        "value": "LDFLAGS"
+      }
+    },
+    "makeopts_name": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "STRING",
+        "value": "MAKEOPTS"
+      }
+    },
+    "chost_name": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "STRING",
+        "value": "CHOST"
+      }
+    },
+    "features_name": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "STRING",
+        "value": "FEATURES"
+      }
+    },
+    "known_variable": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "GENTOO_MIRRORS"
+          },
+          {
+            "type": "STRING",
+            "value": "SYNC"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_NICENESS"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTDIR_OVERLAY"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_GPG_DIR"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_GPG_KEY"
+          },
+          {
+            "type": "STRING",
+            "value": "SIGNED_OFF_BY"
+          },
+          {
+            "type": "STRING",
+            "value": "CONFIG_PROTECT_MASK"
+          },
+          {
+            "type": "STRING",
+            "value": "CONFIG_PROTECT"
+          },
+          {
+            "type": "STRING",
+            "value": "FETCHCOMMAND"
+          },
+          {
+            "type": "STRING",
+            "value": "RESUMECOMMAND"
+          },
+          {
+            "type": "STRING",
+            "value": "AUTOCLEAN"
+          },
+          {
+            "type": "STRING",
+            "value": "BUILD_PREFIX"
+          },
+          {
+            "type": "STRING",
+            "value": "CBUILD"
+          },
+          {
+            "type": "STRING",
+            "value": "CLEAN_DELAY"
+          },
+          {
+            "type": "STRING",
+            "value": "COLLISION_IGNORE"
+          },
+          {
+            "type": "STRING",
+            "value": "DISTDIR"
+          },
+          {
+            "type": "STRING",
+            "value": "DOC_SYMLINKS_DIR"
+          },
+          {
+            "type": "STRING",
+            "value": "EMERGE_DEFAULT_OPTS"
+          },
+          {
+            "type": "STRING",
+            "value": "HTTP_PROXY"
+          },
+          {
+            "type": "STRING",
+            "value": "FTP_PROXY"
+          },
+          {
+            "type": "STRING",
+            "value": "NOCOLOR"
+          },
+          {
+            "type": "STRING",
+            "value": "PKGDIR"
+          },
+          {
+            "type": "STRING",
+            "value": "PORT_LOGDIR"
+          },
+          {
+            "type": "STRING",
+            "value": "PORT_LOGDIR_CLEAN"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_BINHOST"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_BINHOST_HEADER_URI"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_BINPKG_FORMAT"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_BINPKG_TAR_OPTS"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_COMPRESS"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_COMPRESS_FLAGS"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_ELOG_CLASSES"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_ELOG_COMMAND"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_ELOG_MAILFROM"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_ELOG_MAILURI"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_ELOG_SYSTEM"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_FETCH_CHECKSUM_TRY_MIRRORS"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_FETCH_RESUME_MIN_SIZE"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_LOGDIR"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_LOGDIR_CLEAN"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_RSYNC_EXTRA_OPTS"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_RSYNC_OPTS"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_RSYNC_INITIAL_TIMEOUT"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_RSYNC_RETRIES"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_TMPDIR"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_WORKDIR_MODE"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTDIR"
+          },
+          {
+            "type": "STRING",
+            "value": "ROOT"
+          },
+          {
+            "type": "STRING",
+            "value": "RSYNC_EXCLUDEFROM"
+          },
+          {
+            "type": "STRING",
+            "value": "RSYNC_RETRIES"
+          },
+          {
+            "type": "STRING",
+            "value": "RSYNC_TIMEOUT"
+          },
+          {
+            "type": "STRING",
+            "value": "RPMDIR"
+          },
+          {
+            "type": "STRING",
+            "value": "USE_ORDER"
+          },
+          {
+            "type": "STRING",
+            "value": "LINGUAS"
+          },
+          {
+            "type": "STRING",
+            "value": "EXTRA_ECONF"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_TMPFS"
+          },
+          {
+            "type": "STRING",
+            "value": "INSTALL_MASK"
+          },
+          {
+            "type": "STRING",
+            "value": "QA_STRICT_EXECSTACK"
+          },
+          {
+            "type": "STRING",
+            "value": "QA_STRICT_WX_LOAD"
+          },
+          {
+            "type": "STRING",
+            "value": "QA_STRICT_TEXTRELS"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_IONICE_COMMAND"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_LOG_FILTER_FILE_CMD"
+          },
+          {
+            "type": "STRING",
+            "value": "PORTAGE_SCHEDULING_POLICY"
+          },
+          {
+            "type": "STRING",
+            "value": "BINPKG_COMPRESS"
+          },
+          {
+            "type": "STRING",
+            "value": "BINPKG_COMPRESS_FLAGS"
+          }
+        ]
+      }
+    },
+    "eclass_variable": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "EBEEP_IGNORE"
+          },
+          {
+            "type": "STRING",
+            "value": "EPAUSE_IGNORE"
+          },
+          {
+            "type": "STRING",
+            "value": "CHECKREQS_DONOTHING"
+          },
+          {
+            "type": "STRING",
+            "value": "BREAKME"
+          },
+          {
+            "type": "STRING",
+            "value": "ECHANGELOG_USER"
+          },
+          {
+            "type": "STRING",
+            "value": "CCACHE_SIZE"
+          },
+          {
+            "type": "STRING",
+            "value": "CCACHE_DIR"
+          },
+          {
+            "type": "STRING",
+            "value": "CCACHE_SLOPPINESS"
+          },
+          {
+            "type": "STRING",
+            "value": "DISTCC_DIR"
+          }
+        ]
+      }
+    },
+    "naughty_variable": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "ASFLAGS"
+          },
+          {
+            "type": "STRING",
+            "value": "ARCH"
+          },
+          {
+            "type": "STRING",
+            "value": "ELIBC"
+          },
+          {
+            "type": "STRING",
+            "value": "KERNEL"
+          },
+          {
+            "type": "STRING",
+            "value": "USERLAND"
+          }
+        ]
+      }
+    },
+    "misc_variable": {
+      "type": "PATTERN",
+      "value": "[A-Za-z0-9_-]+"
+    },
+    "value": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "quoted_string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bareword_list"
+        }
+      ]
+    },
+    "quoted_string": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "ws"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "escape"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "var_ref"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "use_flag"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "arch"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "license_token"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "feature"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "flag_token"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "bad_sparc_chost"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "makeopts_bad_j"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "string_chunk"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\""
+        }
+      ]
+    },
+    "ws": {
+      "type": "PATTERN",
+      "value": "[ \\t]+"
+    },
+    "string_chunk": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": -1,
+        "content": {
+          "type": "PATTERN",
+          "value": "[^\"\\\\$ \\t]+"
+        }
+      }
+    },
+    "bareword_list": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "escape"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "var_ref"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "use_flag"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "arch"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "license_token"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "feature"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "flag_token"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "bad_sparc_chost"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "makeopts_bad_j"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "bareword_chunk"
+              }
+            ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[ \\t]+"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "bareword_chunk": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": -1,
+        "content": {
+          "type": "PATTERN",
+          "value": "[^ \\t\"\\\\$]+"
+        }
+      }
+    },
+    "escape": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "\\\\."
+          },
+          {
+            "type": "PATTERN",
+            "value": "\\\\\\n"
+          }
+        ]
+      }
+    },
+    "var_ref": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "\\$\\{[^}]+\\}"
+          },
+          {
+            "type": "PATTERN",
+            "value": "\\$[A-Za-z0-9_-]+"
+          }
+        ]
+      }
+    },
+    "use_flag": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "-?[A-Za-z0-9_:-]+"
+            },
+            {
+              "type": "PATTERN",
+              "value": "-?@[A-Za-z0-9_-]+"
+            },
+            {
+              "type": "PATTERN",
+              "value": "-\\*"
+            }
+          ]
+        }
+      }
+    },
+    "arch": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "~"
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "alpha"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "amd64"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "amd64-fbsd"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "amd64-linux"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "arm"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "arm64"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "arm64-linux"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "arm-linux"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "hppa"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "ia64"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "loong"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "m68k"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "m68k-mint"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "mips"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "ppc"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "ppc64"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "ppc64-linux"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "ppc-aix"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "ppc-macos"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "riscv"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "s390"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "sh"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "sparc"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "sparc64-solaris"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "sparc-solaris"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "x64-cygwin"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "x64-macos"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "x64-solaris"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "x86"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "x86-cygwin"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "x86-fbsd"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "x86-linux"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "x86-macos"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "x86-solaris"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "x86-winnt"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "STRING",
+              "value": "alpha"
+            },
+            {
+              "type": "STRING",
+              "value": "amd64"
+            },
+            {
+              "type": "STRING",
+              "value": "amd64-fbsd"
+            },
+            {
+              "type": "STRING",
+              "value": "amd64-linux"
+            },
+            {
+              "type": "STRING",
+              "value": "arm"
+            },
+            {
+              "type": "STRING",
+              "value": "arm64"
+            },
+            {
+              "type": "STRING",
+              "value": "arm64-linux"
+            },
+            {
+              "type": "STRING",
+              "value": "arm-linux"
+            },
+            {
+              "type": "STRING",
+              "value": "hppa"
+            },
+            {
+              "type": "STRING",
+              "value": "ia64"
+            },
+            {
+              "type": "STRING",
+              "value": "loong"
+            },
+            {
+              "type": "STRING",
+              "value": "m68k"
+            },
+            {
+              "type": "STRING",
+              "value": "m68k-mint"
+            },
+            {
+              "type": "STRING",
+              "value": "mips"
+            },
+            {
+              "type": "STRING",
+              "value": "ppc"
+            },
+            {
+              "type": "STRING",
+              "value": "ppc64"
+            },
+            {
+              "type": "STRING",
+              "value": "ppc64-linux"
+            },
+            {
+              "type": "STRING",
+              "value": "ppc-aix"
+            },
+            {
+              "type": "STRING",
+              "value": "ppc-macos"
+            },
+            {
+              "type": "STRING",
+              "value": "riscv"
+            },
+            {
+              "type": "STRING",
+              "value": "s390"
+            },
+            {
+              "type": "STRING",
+              "value": "sh"
+            },
+            {
+              "type": "STRING",
+              "value": "sparc"
+            },
+            {
+              "type": "STRING",
+              "value": "sparc64-solaris"
+            },
+            {
+              "type": "STRING",
+              "value": "sparc-solaris"
+            },
+            {
+              "type": "STRING",
+              "value": "x64-cygwin"
+            },
+            {
+              "type": "STRING",
+              "value": "x64-macos"
+            },
+            {
+              "type": "STRING",
+              "value": "x64-solaris"
+            },
+            {
+              "type": "STRING",
+              "value": "x86"
+            },
+            {
+              "type": "STRING",
+              "value": "x86-cygwin"
+            },
+            {
+              "type": "STRING",
+              "value": "x86-fbsd"
+            },
+            {
+              "type": "STRING",
+              "value": "x86-linux"
+            },
+            {
+              "type": "STRING",
+              "value": "x86-macos"
+            },
+            {
+              "type": "STRING",
+              "value": "x86-solaris"
+            },
+            {
+              "type": "STRING",
+              "value": "x86-winnt"
+            },
+            {
+              "type": "PATTERN",
+              "value": "-[A-Za-z0-9_-]+"
+            }
+          ]
+        }
+      }
+    },
+    "license_token": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "@[A-Za-z0-9_.+-]+"
+            },
+            {
+              "type": "STRING",
+              "value": "-@?[A-Za-z0-9_.+-]+"
+            },
+            {
+              "type": "PATTERN",
+              "value": "\\*"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[A-Za-z0-9_.+-]+"
+            }
+          ]
+        }
+      }
+    },
+    "feature": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "-?[A-Za-z0-9_-]+"
+            },
+            {
+              "type": "PATTERN",
+              "value": "\\*"
+            },
+            {
+              "type": "PATTERN",
+              "value": "\\+[A-Za-z0-9_-]+"
+            }
+          ]
+        }
+      }
+    },
+    "flag_token": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "PATTERN",
+          "value": "-[A-Za-z0-9_+=.,:/-]+"
+        }
+      }
+    },
+    "makeopts_bad_j": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 2,
+        "content": {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "-j"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[ \\t]+"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[0-9]+"
+            }
+          ]
+        }
+      }
+    },
+    "bad_sparc_chost": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "PATTERN",
+          "value": "sparc(-unknown-linux-gnu)?[^ \\t]*"
+        }
+      }
+    }
+  },
+  "extras": [],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": [],
+  "reserved": {}
+}

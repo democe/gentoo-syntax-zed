@@ -1,0 +1,21 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "gentoo-package-properties",
+      "camelcase": "GentooPackageProperties",
+      "title": "Gentoo Package Properties",
+      "scope": "source.gentoo-package-properties",
+      "injection-regex": "^gentoo-package-properties$",
+      "class-name": "TreeSitterGentooPackageProperties"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "tree-sitter grammar for Gentoo Gentoo Package Properties files",
+    "authors": [{ "name": "democe <democe@democe.com>" }],
+    "links": { "repository": "https://github.com/democe/gentoo-syntax-zed" }
+  },
+  "bindings": { "c": true, "go": false, "node": false, "python": false, "rust": false, "swift": false }
+}

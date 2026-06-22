@@ -1,0 +1,6 @@
+name = "Gentoo OpenRC Init"
+grammar = "bash"
+first_line_pattern = "^#!\\s*/sbin/(runscript|openrc-run)\\b"
+line_comments = ["# "]
+tab_size = 4
+hard_tabs = true

@@ -1,0 +1,5 @@
+name = "Gentoo make.conf"
+grammar = "gentoo_make_conf"
+path_suffixes = ["make.conf", "make.globals"]
+line_comments = ["# "]
+tab_size = 4

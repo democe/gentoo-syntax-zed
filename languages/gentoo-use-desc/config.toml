@@ -1,0 +1,5 @@
+name = "Gentoo use.desc"
+grammar = "gentoo_use_desc"
+path_suffixes = ["use.desc", "use.local.desc"]
+line_comments = ["# "]
+tab_size = 4

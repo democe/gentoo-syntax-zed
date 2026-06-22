@@ -1,0 +1,5 @@
+name = "Gentoo package.properties"
+grammar = "gentoo_package_properties"
+path_suffixes = ["package.properties"]
+line_comments = ["# "]
+tab_size = 4

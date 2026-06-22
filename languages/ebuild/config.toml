@@ -1,0 +1,6 @@
+name = "Gentoo Ebuild"
+grammar = "bash"
+path_suffixes = ["ebuild"]
+line_comments = ["# "]
+tab_size = 4
+hard_tabs = true

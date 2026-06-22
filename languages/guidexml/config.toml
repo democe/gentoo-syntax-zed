@@ -1,0 +1,4 @@
+name = "Gentoo GuideXML"
+grammar = "xml"
+first_line_pattern = "^\\s*<!DOCTYPE\\s+(guide|news|mainpage|book|sections|dynamic|inserts)\\b"
+tab_size = 2

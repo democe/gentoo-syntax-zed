@@ -3,6 +3,11 @@
 ; Gentoo /etc/init.d/ scripts — OpenRC-specific helpers layered on bash.
 ; Mirrors gentoo-syntax/syntax/gentoo-init-d.vim.
 
+[
+  (expansion)
+  (simple_expansion)
+] @variable.special
+
 ; depend() keywords: config need use before after provide keyword
 ((command name: (command_name) @keyword
   (#any-of? @keyword

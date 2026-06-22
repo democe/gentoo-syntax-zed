@@ -237,6 +237,13 @@
   (#eq? @constant "EXPORT_FUNCTIONS"))
   (command argument: (word) @function))
 
+; --- Shell expansions ------------------------------------------------------
+; Make variable references stand out from surrounding string content.
+[
+  (expansion)
+  (simple_expansion)
+] @variable.special
+
 ; --- Eclass documentation tags in comments ---------------------------------
 ; Comments containing @TAG or @TAG: at end-of-line get a doc-tag capture.
 ((comment) @comment

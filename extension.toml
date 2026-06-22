@@ -13,6 +13,7 @@ rev = "a06c2e4415e9bc0346c6b86d401879ffb44058f7"
 [grammars.xml]
 repository = "https://github.com/tree-sitter-grammars/tree-sitter-xml"
 rev = "5000ae8f22d11fbe93939b05c1e37cf21117162d"
+path = "xml"
 
 [grammars.rst]
 repository = "https://github.com/stsewd/tree-sitter-rst"

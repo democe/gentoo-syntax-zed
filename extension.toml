@@ -1,6 +1,6 @@
 id = "gentoo-syntax"
 name = "Gentoo Syntax"
-version = "0.1.0"
+version = "0.0.1"
 schema_version = 1
 authors = ["democe <democe@democe.com>"]
 description = "Gentoo Portage and OpenRC syntax highlighting for Zed."
@@ -21,40 +21,40 @@ rev = "a60f1070b824cb8bb8409b4b6d7da0d07997c30e"
 
 [grammars.gentoo_make_conf]
 repository = "https://github.com/democe/gentoo-syntax-zed"
-rev = "main"
+rev = "3729e5d159fc1a43fc2161fdb8b9c2c550c610e9"
 path = "grammars/gentoo-make-conf"
 
 [grammars.gentoo_mirrors]
 repository = "https://github.com/democe/gentoo-syntax-zed"
-rev = "main"
+rev = "3729e5d159fc1a43fc2161fdb8b9c2c550c610e9"
 path = "grammars/gentoo-mirrors"
 
 [grammars.gentoo_package_keywords]
 repository = "https://github.com/democe/gentoo-syntax-zed"
-rev = "main"
+rev = "3729e5d159fc1a43fc2161fdb8b9c2c550c610e9"
 path = "grammars/gentoo-package-keywords"
 
 [grammars.gentoo_package_license]
 repository = "https://github.com/democe/gentoo-syntax-zed"
-rev = "main"
+rev = "3729e5d159fc1a43fc2161fdb8b9c2c550c610e9"
 path = "grammars/gentoo-package-license"
 
 [grammars.gentoo_package_mask]
 repository = "https://github.com/democe/gentoo-syntax-zed"
-rev = "main"
+rev = "3729e5d159fc1a43fc2161fdb8b9c2c550c610e9"
 path = "grammars/gentoo-package-mask"
 
 [grammars.gentoo_package_properties]
 repository = "https://github.com/democe/gentoo-syntax-zed"
-rev = "main"
+rev = "3729e5d159fc1a43fc2161fdb8b9c2c550c610e9"
 path = "grammars/gentoo-package-properties"
 
 [grammars.gentoo_package_use]
 repository = "https://github.com/democe/gentoo-syntax-zed"
-rev = "main"
+rev = "3729e5d159fc1a43fc2161fdb8b9c2c550c610e9"
 path = "grammars/gentoo-package-use"
 
 [grammars.gentoo_use_desc]
 repository = "https://github.com/democe/gentoo-syntax-zed"
-rev = "main"
+rev = "3729e5d159fc1a43fc2161fdb8b9c2c550c610e9"
 path = "grammars/gentoo-use-desc"

@@ -28,9 +28,6 @@ or the full path-pattern detection from `gentoo-syntax-nvim`; files that Zed
 cannot infer from suffix or first line can still be selected manually or mapped
 in user settings.
 
-Before publishing, replace the custom Gentoo grammar `rev = "main"` entries in
-`extension.toml` with a pinned commit SHA.
-
 ## License
 
 MIT. See [LICENSE](LICENSE).

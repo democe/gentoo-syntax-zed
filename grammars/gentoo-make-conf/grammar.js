@@ -139,7 +139,7 @@ module.exports = grammar({
     ws: $ => /[ \t]+/,
 
     // Raw text inside a quoted string (no extras, so spaces are kept).
-    string_chunk: $ => token.immediate(prec(-1, /[^"\\$ \t]+/)),
+    string_chunk: $ => token.immediate(prec(-1, /[^"\\$ \t\n]+/)),
 
     bareword_list: $ => repeat1(seq(
       choice(
@@ -157,7 +157,7 @@ module.exports = grammar({
       optional(/[ \t]+/),
     )),
 
-    bareword_chunk: $ => token.immediate(prec(-1, /[^ \t"\\$]+/)),
+    bareword_chunk: $ => token.immediate(prec(-1, /[^\n \t"\\$]+/)),
 
     escape:  $ => token.immediate(choice(/\\./, /\\\n/)),
     var_ref: $ => token.immediate(choice(
@@ -201,6 +201,6 @@ module.exports = grammar({
     makeopts_bad_j: $ => token.immediate(prec(2, seq('-j', /[ \t]+/, /[0-9]+/))),
 
     // A CHOST that starts with "sparc" but is not "sparc-unknown-linux-gnu".
-    bad_sparc_chost: $ => token.immediate(prec(1, /sparc(-unknown-linux-gnu)?[^ \t]*/)),
+    bad_sparc_chost: $ => token.immediate(prec(1, /sparc(-unknown-linux-gnu)?[^\n \t]*/)),
   },
 });

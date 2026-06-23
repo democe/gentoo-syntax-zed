@@ -673,7 +673,7 @@
         "value": -1,
         "content": {
           "type": "PATTERN",
-          "value": "[^\"\\\\$ \\t]+"
+          "value": "[^\"\\\\$ \\t\\n]+"
         }
       }
     },
@@ -749,7 +749,7 @@
         "value": -1,
         "content": {
           "type": "PATTERN",
-          "value": "[^ \\t\"\\\\$]+"
+          "value": "[^\\n \\t\"\\\\$]+"
         }
       }
     },
@@ -1213,7 +1213,7 @@
         "value": 1,
         "content": {
           "type": "PATTERN",
-          "value": "sparc(-unknown-linux-gnu)?[^ \\t]*"
+          "value": "sparc(-unknown-linux-gnu)?[^\\n \\t]*"
         }
       }
     }

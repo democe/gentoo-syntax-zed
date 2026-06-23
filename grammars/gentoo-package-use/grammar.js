@@ -11,24 +11,22 @@
 
 module.exports = grammar({
   name: 'gentoo_package_use',
-  extras: $ => [],
+  extras: $ => [/[ \t]+/],
 
   rules: {
     file: $ => repeat(choice($.comment, $.blank_line, $.entry)),
 
-    blank_line: $ => /[ \t]*\n/,
+    blank_line: $ => '\n',
 
-    comment: $ => token(seq('#', /[^\n]*/)),
+    comment: $ => token(seq('#', /[^\n]*/, optional('\n'))),
 
-    entry: $ => seq(optional(/[ \t]+/), $.atom, repeat(seq(/[ \t]+/, $.use_spec)), /[ \t]*/, optional('\n')),
+    entry: $ => seq($.atom, repeat($.use_spec)),
 
     // Package atom: cat/pkg with optional :slot, -version, wildcards.
     // Anything up to the first whitespace after a slash.
-    atom: $ => token(prec(2, /[^\s#\/]+\/[^\s#]+/)),
+    atom: $ => token(prec(2, /[^\n \t#\/]+\/[^\n \t#]+/)),
 
-    use_spec: $ => choice($.use_expand_spec, $.use_flag, $.use_disabled),
-
-    use_expand_spec: $ => seq($.use_expand, optional(choice($.use_flag, $.use_disabled))),
+    use_spec: $ => choice($.use_expand, $.use_disabled, $.use_flag),
 
     // USE_EXPAND: a 'category:' token (trailing colon).
     use_expand: $ => token(prec(2, /[A-Za-z0-9][A-Za-z0-9_-]*:/)),

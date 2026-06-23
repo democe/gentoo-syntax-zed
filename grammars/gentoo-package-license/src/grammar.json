@@ -23,8 +23,8 @@
       }
     },
     "blank_line": {
-      "type": "PATTERN",
-      "value": "[ \\t]*\\n"
+      "type": "STRING",
+      "value": "\n"
     },
     "comment": {
       "type": "TOKEN",
@@ -38,6 +38,18 @@
           {
             "type": "PATTERN",
             "value": "[^\\n]*"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "\n"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
           }
         ]
       }
@@ -46,52 +58,15 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "PATTERN",
-              "value": "[ \\t]+"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
           "type": "SYMBOL",
           "name": "atom"
         },
         {
           "type": "REPEAT",
           "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "PATTERN",
-                "value": "[ \\t]+"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "license_spec"
-              }
-            ]
+            "type": "SYMBOL",
+            "name": "license_spec"
           }
-        },
-        {
-          "type": "PATTERN",
-          "value": "[ \\t]*"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "\n"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
         }
       ]
     },
@@ -102,13 +77,17 @@
         "value": 2,
         "content": {
           "type": "PATTERN",
-          "value": "[^\\s#\\/]+\\/[^\\s#]+"
+          "value": "[^\\n \\t#\\/]+\\/[^\\n \\t#]+"
         }
       }
     },
     "license_spec": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "SYMBOL",
+          "name": "license_expand"
+        },
         {
           "type": "SYMBOL",
           "name": "license_group"
@@ -126,6 +105,17 @@
           "name": "star"
         }
       ]
+    },
+    "license_expand": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 3,
+        "content": {
+          "type": "PATTERN",
+          "value": "[A-Za-z0-9][A-Za-z0-9_-]*:"
+        }
+      }
     },
     "license_group": {
       "type": "TOKEN",
@@ -172,7 +162,12 @@
       }
     }
   },
-  "extras": [],
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "[ \\t]+"
+    }
+  ],
   "conflicts": [],
   "precedences": [],
   "externals": [],

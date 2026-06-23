@@ -9,20 +9,23 @@
 
 module.exports = grammar({
   name: 'gentoo_package_license',
-  extras: $ => [],
+  extras: $ => [/[ \t]+/],
 
   rules: {
     file: $ => repeat(choice($.comment, $.blank_line, $.entry)),
 
-    blank_line: $ => /[ \t]*\n/,
+    blank_line: $ => '\n',
 
-    comment: $ => token(seq('#', /[^\n]*/)),
+    comment: $ => token(seq('#', /[^\n]*/, optional('\n'))),
 
-    entry: $ => seq(optional(/[ \t]+/), $.atom, repeat(seq(/[ \t]+/, $.license_spec)), /[ \t]*/, optional('\n')),
+    entry: $ => seq($.atom, repeat($.license_spec)),
 
-    atom: $ => token(prec(2, /[^\s#\/]+\/[^\s#]+/)),
+    atom: $ => token(prec(2, /[^\n \t#\/]+\/[^\n \t#]+/)),
 
-    license_spec: $ => choice($.license_group, $.license_neg, $.license, $.star),
+    license_spec: $ => choice($.license_expand, $.license_group, $.license_neg, $.license, $.star),
+
+    // ACCEPT_LICENSE: prefix used in package.license directory entries.
+    license_expand: $ => token(prec(3, /[A-Za-z0-9][A-Za-z0-9_-]*:/)),
 
     // @group or -@group
     license_group: $ => token(prec(3, /-?@[A-Za-z0-9_.+-]+/)),
